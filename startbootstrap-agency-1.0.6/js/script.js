@@ -1,9 +1,12 @@
-'use strict'
+
 var swap_api = swap_api || {};
 var token;
 var id;
 
 $(document).ready(function() {
+
+  var myProfileTemplate = Handlebars.compile($('#myProfile').html());
+
       var form2object = function(form) {
         var data = {};
         $(form).find('input').each(function(index, element) {
@@ -63,6 +66,7 @@ $(document).ready(function() {
         var token = $('.token').val();
         var id = $('.id').val();
         var cb = function cb(error, data) {
+          console.log("success");
           if (error) {
             callback(error);
             return;
@@ -92,20 +96,22 @@ $(document).ready(function() {
           }
         });
       });
-      //lists profile
-       $("#myProfile").on('click', function(e) {
+      //shows profile
+       $("#jello").on('click', function(e) {
         e.preventDefault();
-        $('.myProfile').html('');
         var token = $('.token').val();
-        var data = [];
         swap_api.get_profile(token, function(err, data) {
           if (err) {
             console.log(err);
             return;
           } else {
-            $.each(data.profile, function(index, element) {
-              $('.myProfile').append("<li> Profile: " + element.username + '   ' + "Profile: " + element.studio +  '         ' + "Profile: " + element.website + '   ' + "ID: " + element.id + "</li>");
-          });
+              var templateTarget = $('#my-profile-template').html();
+              var template = Handlebars.compile(templateTarget);
+              var content = template(data.profile);
+            $('#myProfile').html(content);
+            /*$.each(data.profile, function(index, element) {
+              $('.myProfile').append("<li> Profile: " + element.username + '   ' + "Profile: " + element.studio +  '         ' + "ID: " + element.id + "</li>");*/
+
         }
       });
     });
@@ -146,11 +152,11 @@ $(document).ready(function() {
       });
     });
       //deleting one resource
-    $('#deleteone').on('submit', function(e) {
+    $('#delete-profile').on('submit', function(e) {
         e.preventDefault();
 
         var token = $('.token').val();
-        var profileid = $('#deleteone > input[name="profileid"]').val();
+        var profileid = $('#delete-profile > input[name="profileid"]').val();
         console.log(profileid);
         swap_api.destroy_profile(token, profileid, function(err, data) {
           if (err) {

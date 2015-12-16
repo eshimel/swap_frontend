@@ -63,6 +63,7 @@ var swap_api = {
 
     }, callback);
   },
+
    get_profile: function (token, callback) {
     this.ajax({
       method: 'GET',

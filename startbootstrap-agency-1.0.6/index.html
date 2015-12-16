@@ -24,12 +24,34 @@
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
+     <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <script src="js/handlebars.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script id="my-profile-template" type="x-handolebars-template">
+    <table>
+        <thead>
+            <th>username</th>
+            <th>studio</th>
+            <th>website</th>
+            <th>profileid</th>
+        </thead>
+           <tbody>
+         <tr>
+            <td>{{username}}</td>
+            <td>{{studio}}</td>
+            <td>{{website}}</td>
+            <td><button id="edit-profile" type="button" data-id={{id}}>Edit</button></td>
+            <td><button id="delete-profile" type="button" data-id={{id}}>Delete</button></td>
+         </tr>
+        </tbody>
+        </table>
+        </script>
 
 </head>
 
@@ -202,46 +224,42 @@
   </section>
 
   <div class="row">
-    <section class="col-sm-12">
+    <section class="col-sm-6">
         <div class="container">
         <h3>Create A Profile</h3>
-      <form id="profile-form">
-        <input name="username" type="text" placeholder="username">
-        <input name="studio" type="text" placeholder="studio location">
-        <input name="website" type="text" placeholder="website">
-        <input name="profile-submit" type="submit" value="Profile">
-        <input class="token" name="token" type="hidden">
-        <input class="id" name="id" type="hidden">
-      </form>
-
-       <div id="myProfile" value="Profile">
-               <input name="profile" type="submit" value="List">
-                <input class="token" name="token" type="hidden">
-                <input class="id" name="id" type="hidden">
-                <ul class="myProfile">My Profile</ul>
-                <li></li>
+            <div>
+                <form id="profile-form">
+                    <input name="username" type="text" placeholder="username">
+                    <input name="studio" type="text" placeholder="studio location">
+                    <input name="website" type="text" placeholder="website">
+                    <input name="profile-submit" type="submit" value="Profile">
+                    <input class="token" name="token" type="hidden">
+                    <input class="id" name="id" type="hidden">
+                </form>
+            </div>
+                <div><input id="jello" type="submit" value="ShowProfile"></div>
+                <div id="myProfile" value="Profile"></div>
+            <div>
+                <form id="update">
+                    <h3>Update Profile</h3>
+                     <input name="profileid" type="text" placeholder="Insert ID">
+                     <input name="username" type="text" placeholder="new username">
+                     <input name="studio" type="text" placeholder="new studio">
+                     <input name="website" type="text" placeholder="new website">
+                     <input type="submit" value="Update Profile">
+                 </form>
             </div>
         <div>
-            <form id="update">
-            <h3>Update Profile</h3>
-                <input name="profileid" type="text" placeholder="Insert ID">
-                <input name="username" type="text" placeholder="new username">
-                <input name="studio" type="text" placeholder="new studio">
-                <input name="website" type="text" placeholder="new website">
-                <input type="submit" value="Update Profile">
-            </form>
-        </div>
-        <div>
-        <h3>Delete Profile</h3>
-            <form id="deleteone">
+            <h3>Delete Profile</h3>
+            <form id="delete-profile">
                   <input name="profileid" type="text" placeholder="Insert ID">
-                  <input name="deleteone" type="submit" value="Delete a Profile">
+                  <input name="delete-profile" type="submit" value="Delete a Profile">
                   <input class="profileid" name="profileid" type="hidden">
             </form>
-
-            </div>
-
-    <section class="col-sm-12">
+        </div>
+        </div>
+    </section>
+        <section class="col-sm-6">
         <div class="container">
         <h3>Add Resources</h3>
         <form id="resource-form">
@@ -258,21 +276,20 @@
                 <ul class="myResources">My Resources</ul>
                 <li></li>
             </div>
-        </section>
 
-      </div>
-    </section>
-  </div>
-     <div>
-        <h3>Delete Resources</h3>
-            <form id="deleteone">
+
+
+            <div>
+                <h3>Delete Resources</h3>
+                <form id="deleteone">
                   <input name="resourceid" type="text" placeholder="Insert ID">
                   <input name="deleteone" type="submit" value="Delete a Resource">
                   <input class="resourceid" name="resourceid" type="hidden">
-            </form>
+                </form>
 
             </div>
-
+        </div>
+    </section>
     <!-- Contact Section -->
     <section id="sign_up">
         <div class="container">
@@ -333,8 +350,8 @@
     </footer>
 
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+
+
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
