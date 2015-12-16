@@ -221,16 +221,25 @@
                 <ul class="myProfile">My Profile</ul>
                 <li></li>
             </div>
-    <div>
-        <form id="update">
+        <div>
+            <form id="update">
             <h3>Update Profile</h3>
-                        <input name="profileid" type="text" placeholder="Insert ID">
-                        <input name="username" type="text" placeholder="new username">
-                        <input name="studio" type="text" placeholder="new studio">
-                        <input name="website" type="text" placeholder="new website">
-                        <input type="submit" value="Update Profile">
-                    </form>
-              </div>
+                <input name="profileid" type="text" placeholder="Insert ID">
+                <input name="username" type="text" placeholder="new username">
+                <input name="studio" type="text" placeholder="new studio">
+                <input name="website" type="text" placeholder="new website">
+                <input type="submit" value="Update Profile">
+            </form>
+        </div>
+        <div>
+        <h3>Delete Profile</h3>
+            <form id="deleteone">
+                  <input name="profileid" type="text" placeholder="Insert ID">
+                  <input name="deleteone" type="submit" value="Delete a Profile">
+                  <input class="profileid" name="profileid" type="hidden">
+            </form>
+
+            </div>
 
     <section class="col-sm-12">
         <div class="container">
@@ -258,7 +267,7 @@
         <h3>Delete Resources</h3>
             <form id="deleteone">
                   <input name="resourceid" type="text" placeholder="Insert ID">
-                  <input name="deleteone" type="submit" value="Delete an Entry">
+                  <input name="deleteone" type="submit" value="Delete a Resource">
                   <input class="resourceid" name="resourceid" type="hidden">
             </form>
 

@@ -150,9 +150,9 @@ $(document).ready(function() {
         e.preventDefault();
 
         var token = $('.token').val();
-        var resourceid = $('#deleteone > input[name="resourceid"]').val();
-        console.log(resourceid);
-        swap_api.destroy_resource(token, resourceid, function(err, data) {
+        var profileid = $('#deleteone > input[name="profileid"]').val();
+        console.log(profileid);
+        swap_api.destroy_profile(token, profileid, function(err, data) {
           if (err) {
             console.error(err);
             // do something with the error

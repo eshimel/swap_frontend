@@ -75,6 +75,8 @@ var swap_api = {
   },
 
   update_profile: function (token, profileid, update_profile, callback) {
+    update_profile.profileid = profileid;
+    console.log("Update profile: ", update_profile);
     this.ajax({
       method: 'PATCH',
       url: this.url + '/profiles/' + profileid,
