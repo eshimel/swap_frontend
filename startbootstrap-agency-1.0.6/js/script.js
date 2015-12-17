@@ -172,7 +172,7 @@ $(document).ready(function() {
           }
         });
       });
-
+       //changes update buttons
        $('#myProfile').on("click", "button[data-type=edit]", function(e) {
         var token = $('.token').val();
         var profileid = $(this).data("id");
@@ -180,19 +180,9 @@ $(document).ready(function() {
         $(e.target).parent().parent().children().children(".profName").hide();
         $(e.target).parent().parent().children().children(".profInput").show();
 
-        // swap_api.update_profile(token, updateid,
-        // update_profile, function(err, data) {
-        //   if (err) {
-        //     console.error(err);
-        //     // do something with the error
-        //     return;
-        //   } else {
 
-        //     console.log (data);
-
-        //   }
-        // });
       });
+
        $('#myProfile').on("click", "button[data-type=commit]", function(e) {
         e.preventDefault();
         var token = $('.token').val();
@@ -219,40 +209,13 @@ $(document).ready(function() {
         });
       });
 
-
-
-
-
-
-
-
-
-      // Submitting new resource function
-      $('#resource-form').on('click', function(e) {
-        e.preventDefault();
-        var token = $('.token').val();
-        var new_resource = wrap('resource', form2object(this));
-        swap_api.new_resource(token, new_resource, function(err, resourceData) {
-          if (err) {
-            console.error(err);
-            // do something with the error
-            return;
-          } else {
-            $('#resource-form').each(function(){
-            this.reset();
-
-          });
-            console.log(resourceData);
-          }
-        });
-      });
-    //Listing my resources
+         //Listing resources
        $("#myResources").on('click', function(e) {
         e.preventDefault();
         $('.myResources').html('');
         var token = $('.token').val();
         var data = [];
-        swap_api.get_resources(token, function(err, data) {
+        swap_api.update.get_resources(token, function(err, data) {
           if (err) {
             console.log(err);
             return;
@@ -263,45 +226,13 @@ $(document).ready(function() {
         }
       });
     });
-      //deleting one resource
-    $('#delete-profile').on('submit', function(e) {
-        e.preventDefault();
 
-        var token = $('.token').val();
-        var profileid = $('#delete-profile > input[name="profileid"]').val();
-        console.log(profileid);
-        swap_api.destroy_profile(token, profileid, function(err, data) {
-          if (err) {
-            console.error(err);
-            // do something with the error
-            return;
-          } else {
-            console.log (data);
-            //$('#deleteone').each(function(){
-            //this.reset();
-          }
-        });
-      });
-
- $('#update').on('submit', function(e) {
-        e.preventDefault();
-
-        var token = $('.token').val();
-        var updateid = e.target.profileid.value;
-        var update_profile = wrap('profile', form2object(this));
-        console.log(updateid);
-        console.log(update_profile);
-        swap_api.update_profile(token, updateid,
-          update_profile, function(err, data) {
-          if (err) {
-            console.error(err);
-            // do something with the error
-
-          } else {
-            console.log(data);
-            //$('#deleteone').each(function(){
-            //this.reset();
-          }
-        });
-      });
 });
+
+
+
+
+
+
+
+

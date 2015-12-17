@@ -105,6 +105,18 @@ var swap_api = {
   },
 
 
+  get_Resources: function (token, callback) {
+    this.ajax({
+      method: 'GET',
+      url: this.url + '/resources',
+      headers: {
+        Authorization: 'Token token=' + token
+      },
+      contentType: 'application/json; charset=utf-8'
+    }, callback);
+  },
+
+
  new_resource: function (token, new_resource, callback) {
     this.ajax({
       method: 'POST',

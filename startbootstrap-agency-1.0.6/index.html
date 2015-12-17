@@ -44,7 +44,7 @@
         </thead>
         <tbody>
           <tr>
-            <td><span class="profName">{{avatar}}</span><img src="https://s3.amazonaws.com/edie-009/profiles/avatars/000/000/0{{id}}/thumb/{{avatar_file_name}}"</td>
+            <td><span class="profName">{{avatar}}</span><img src="https://s3.amazonaws.com/edie-009/images/{{id}}/medium/{{avatar_file_name}}"</td>
             <td>
                 <span class="profName">{{username}}</span>
                 <input class="profInput" type="text" value="{{username}}" data-id="{{id}}" data-field="username" />
@@ -59,7 +59,8 @@
             </td>
             <td><button class="profInput" type="button" data-type="reset" data-id="{{id}}">Cancel</button>
             </td>
-            <td><button class="profName" data-type="edit" data-id={{id}}>Edit</button></td>
+            <td><button class="profName" data-type="edit" data-id={{id}}>Edit</button>
+            </td>
             <td><button class="profName" data-type="delete" data-id={{id}}>Delete</button>
             </td>
           </tr>
@@ -121,6 +122,79 @@
             </div>
         </div>
     </header>
+
+      <!-- Contact Section -->
+    <section id="sign_up">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Get Started</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+  <div class="row">
+    <section class="col-lg-12">
+        <div class="container">
+        <h3>Sign-Up/Login</h3>
+      <form id="register">
+        <input name="email" type="text" placeholder="email">
+        <input name="password" type="password" placeholder="password">
+        <input name="password_confirmation" type="password" placeholder="password confirmation">
+        <input name="register" type="submit" value="Register">
+      </form>
+      <form id="login">
+        <input name="email" type="text" placeholder="email">
+        <input name="password" type="password" placeholder="password">
+        <input name="login" type="submit" value="Login">
+        <input class="token" name="token" type="hidden">
+        <input class="id" name="id" type="hidden">
+      </form>
+
+      <form id="logout">
+        <input name="logout" type="submit" value="Logout">
+        <input class="token" name="token" type="hidden">
+        <input class="id" name="id" type="hidden">
+        </form>
+    </div>
+
+    </section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 text-center">
+                    <h2 class="section-heading">Create a Profile</h2>
+                     <div>
+                        <form id="profile-form">
+                            <input id="username" type="text" placeholder="username">
+                            <input id="studio" type="text" placeholder="studio location">
+                            <input id="website" type="text" placeholder="website">
+                            <input type="file" id="avatar"/>
+                            <input name="profile-submit" type="submit" value="Profile">
+                            <input class="token" name="token" type="hidden">
+                            <input class="id" name="id" type="hidden">
+                        </form>
+                    </div>
+
+
+                    <div class="col-sm-6 text-center">
+             <div><input id="jello" type="submit" value="MyProfile">
+
+               <div id="myProfile" value="Profile">
+             </div>
+
+
+            </div>
+
+                </div>
+            </div>
+        </div>
+        </section>
+        <section id ="table">
+
+            </section>
+
+  </div>
 
     <!-- Services Section -->
     <section id="swaps">
@@ -228,56 +302,25 @@
        <!-- Profile Section -->
 
 
-    <section id="profile">
+    <section id="portfolios">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Create a Profile</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
+            <div id="myResources" value="Resources">
+               <input name="resource" type="submit" value="List">
+                <input class="token" name="token" type="hidden">
+                <input class="id" name="id" type="hidden">
+                <ul class="myResources">My Resources</ul>
+                <li></li>
             </div>
+         </div>
         </div>
   </section>
 
   <div class="row">
     <section class="col-sm-6">
-        <div class="container">
-        <h3>Create A Profile</h3>
-            <div>
-                <form id="profile-form">
-                    <input id="username" type="text" placeholder="username">
-                    <input id="studio" type="text" placeholder="studio location">
-                    <input id="website" type="text" placeholder="website">
-                    <input type="file" id="avatar"/>
-                    <input name="profile-submit" type="submit" value="Profile">
-                    <input class="token" name="token" type="hidden">
-                    <input class="id" name="id" type="hidden">
+        <div class="container"
 
 
-
-
-                </form>
-            </div>
-                <div><input id="jello" type="submit" value="ShowProfile"></div>
-                <div id="myProfile" value="Profile"></div>
-            <div>
-                <form id="update">
-                    <h3>Update Profile</h3>
-                     <input name="profileid" type="text" placeholder="Insert ID">
-                     <input name="username" type="text" placeholder="new username">
-                     <input name="studio" type="text" placeholder="new studio">
-                     <input name="website" type="text" placeholder="new website">
-                     <input type="submit" value="Update Profile">
-                 </form>
-            </div>
-        <div>
-            <h3>Delete Profile</h3>
-            <form id="delete-profile">
-                  <input name="profileid" type="text" placeholder="Insert ID">
-                  <input name="delete-profile" type="submit" value="Delete a Profile">
-                  <input class="profileid" name="profileid" type="hidden">
-            </form>
-        </div>
         </div>
     </section>
 
@@ -287,42 +330,8 @@
 
         </div>
     </section>
-    <!-- Contact Section -->
-    <section id="sign_up">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Sign_Up</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-  <div class="row">
-    <section class="col-sm-12">
-        <div class="container">
-      <form id="register">
-        <input name="email" type="text" placeholder="email">
-        <input name="password" type="password" placeholder="password">
-        <input name="password_confirmation" type="password" placeholder="password confirmation">
-        <input name="register" type="submit" value="Register">
-      </form>
-      <form id="login">
-        <input name="email" type="text" placeholder="email">
-        <input name="password" type="password" placeholder="password">
-        <input name="login" type="submit" value="Login">
-        <input class="token" name="token" type="hidden">
-        <input class="id" name="id" type="hidden">
-      </form>
 
-      <form id="logout">
-        <input name="logout" type="submit" value="Logout">
-        <input class="token" name="token" type="hidden">
-        <input class="id" name="id" type="hidden">
-        </form>
-    </div>
-    </section>
-  </div>
+
 
 
     <footer>
@@ -345,6 +354,7 @@
             </div>
         </div>
     </footer>
+
 
 
 

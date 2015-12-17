@@ -3,15 +3,15 @@ display: none;
 }
 
 #my-profile-template {
-  font-size: 20px;
+  font-size: 15px;
 }
 
 th {
-  font-size: 20px;
+  font-size: 15px;
 }
 
 td {
-  font-size: 20px;
+  font-size: 15px;
 }
 input[type="submit"] {
   border-radius: 10px;
