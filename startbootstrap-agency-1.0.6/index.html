@@ -34,6 +34,27 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script id="my-resources-template" type="x-handlebars-template">
+    <table>
+        <thead>
+            <th>category</th>
+            <th>description</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+                <span class="resName">{{category}}</span>
+
+            </td>
+            <td>
+                <span class="resName">{{description}}</span>
+
+            </td>
+            </tr>
+        </tbody>
+      </table>
+    </script>
+
     <script id="my-profile-template" type="x-handlebars-template">
     <table>
         <thead>
@@ -157,6 +178,9 @@
         <input class="token" name="token" type="hidden">
         <input class="id" name="id" type="hidden">
         </form>
+
+
+         </div>
     </div>
 
     </section>
@@ -179,12 +203,16 @@
 
                     <div class="col-sm-6 text-center">
              <div><input id="jello" type="submit" value="MyProfile">
+            </div>
 
                <div id="myProfile" value="Profile">
              </div>
-
-
+             <div><input id="pudding" type="submit" value="MyResources">
             </div>
+             <div id="myResources" value="Resources">
+            </div>
+
+
 
                 </div>
             </div>
@@ -305,14 +333,7 @@
     <section id="portfolios">
         <div class="container">
             <div class="row">
-            <div id="myResources" value="Resources">
-               <input name="resource" type="submit" value="List">
-                <input class="token" name="token" type="hidden">
-                <input class="id" name="id" type="hidden">
-                <ul class="myResources">My Resources</ul>
-                <li></li>
-            </div>
-         </div>
+
         </div>
   </section>
 

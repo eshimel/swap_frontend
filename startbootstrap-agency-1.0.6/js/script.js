@@ -6,6 +6,8 @@ var id;
 $(document).ready(function() {
 
   var myProfileTemplate = Handlebars.compile($('#myProfile').html());
+  var myProfileTemplate = Handlebars.compile($('#myResources').html());
+
 
       var form2object = function(form) {
         var data = {};
@@ -31,8 +33,6 @@ $(document).ready(function() {
         }
         $('#result').val(JSON.stringify(data, null, 4));
       };
-
-      $.ajax
 
       $('#register').on('submit', function(e) {
         e.preventDefault();
@@ -120,7 +120,7 @@ $(document).ready(function() {
        }
 
      }).done(function(response){
-
+        getProfile();
      }).fail(function(response){
        console.error('Whoops!');
      });
@@ -146,12 +146,25 @@ $(document).ready(function() {
               var template = Handlebars.compile(templateTarget);
               var content = template(data.profile);
             $('#myProfile').html(content);
-            /*$.each(data.profile, function(index, element) {
-              $('.myProfile').append("<li> Profile: " + element.username + '   ' + "Profile: " + element.studio +  '         ' + "ID: " + element.id + "</li>");*/
 
         }
       });
-    });
+        });
+        var getProfile = function() {
+        var token = $('.token').val();
+        swap_api.get_profile(token, function(err, data) {
+          if (err) {
+            console.log(err);
+            return;
+          } else {
+              var templateTarget = $('#my-profile-template').html();
+              var template = Handlebars.compile(templateTarget);
+              var content = template(data.profile);
+            $('#myProfile').html(content);
+
+        }
+      });
+    };
 
        //deleting with handlebars button
        $('#myProfile').on("click", "button[data-type=delete]", function(e) {
@@ -208,24 +221,34 @@ $(document).ready(function() {
         }
         });
       });
-
-         //Listing resources
-       $("#myResources").on('click', function(e) {
+        //shows profile
+       $("#pudding").on('click', function(e) {
         e.preventDefault();
-        $('.myResources').html('');
-        var token = $('.token').val();
-        var data = [];
-        swap_api.update.get_resources(token, function(err, data) {
+        token = $('.token').val();
+        //        var profileid = $(this).data("id");
+        swap_api.get_resources(token, function(err, data) {
           if (err) {
             console.log(err);
             return;
           } else {
-            $.each(data.resources, function(index, element) {
-              $('.myResources').append("<li> Resource: " + element.category + '   ' + "Resource: " + element.description +  '         ' + "ID: " + element.id + "</li>");
-          });
+            debugger;
+            var resources = data.resources;
+            var resourcesHTML = '';
+            resources.forEach(function(resource){
+              var templateTarget = $('#my-resources-template').html();
+              var template = Handlebars.compile(templateTarget);
+              resourcesHTML += template(resource);
+            });
+
+            $('#myResources').html(resourcesHTML);
+
+            /*$.each(data.profile, function(index, element) {
+              $('.myProfile').append("<li> Profile: " + element.username + '   ' + "Profile: " + element.studio +  '         ' + "ID: " + element.id + "</li>");*/
+
         }
       });
     });
+
 
 });
 

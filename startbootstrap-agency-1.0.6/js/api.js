@@ -21,7 +21,6 @@ var swap_api = {
       data: JSON.stringify(credentials),
       dataType: 'json'
     }, callback);
-    console.log("success");
   },
 
 
@@ -33,7 +32,6 @@ var swap_api = {
       data: JSON.stringify(credentials),
       dataType: 'json'
     }, callback);
-    console.log("success");
   },
 
 
@@ -47,7 +45,6 @@ var swap_api = {
       contentType: 'application/json',
       dataType: 'json'
     }, callback);
-    console.log("success");
   },
 
    new_profile: function (token, new_profile, callback) {
@@ -105,7 +102,7 @@ var swap_api = {
   },
 
 
-  get_Resources: function (token, callback) {
+  get_resources: function (token, callback) {
     this.ajax({
       method: 'GET',
       url: this.url + '/resources',
@@ -129,16 +126,6 @@ var swap_api = {
       dataType: 'json'
 
     }, callback);
-  },
-
-  get_resources: function (token, callback) {
-    this.ajax({
-      method: 'GET',
-      url: this.url + '/resources',
-      headers: {
-        Authorization: 'Token token=' + token
-      },
-      contentType: 'application/json; charset=utf-8'
-    }, callback);
   }
 };
+
