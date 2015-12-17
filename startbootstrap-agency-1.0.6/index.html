@@ -44,7 +44,7 @@
         </thead>
         <tbody>
           <tr>
-            <td><img src="https://s3.amazonaws.com/edie-009/profiles/avatars/000/000/0{{id}}/thumb/{{avatar_file_name}}"</td>
+            <td><span class="profName">{{avatar}}</span><img src="https://s3.amazonaws.com/edie-009/profiles/avatars/000/000/0{{id}}/thumb/{{avatar_file_name}}"</td>
             <td>
                 <span class="profName">{{username}}</span>
                 <input class="profInput" type="text" value="{{username}}" data-id="{{id}}" data-field="username" />
@@ -55,9 +55,9 @@
             <td><span class="profName">{{website}}</span>
                 <input class="profInput" type="text" value="{{website}}" data-id="{{id}}" data-field="website" />
             </td>
-            <td><button class="profInput" type="button" data-type="commit" data-id={{id}}>Ok</button>
+            <td><button class="profInput" type="button" data-type="commit" data-id="{{id}}">Ok</button>
             </td>
-            <td><button class="profInput" type="button" data-type="reset" data-id={{id}}>Cancel</button>
+            <td><button class="profInput" type="button" data-type="reset" data-id="{{id}}">Cancel</button>
             </td>
             <td><button class="profName" data-type="edit" data-id={{id}}>Edit</button></td>
             <td><button class="profName" data-type="delete" data-id={{id}}>Delete</button>

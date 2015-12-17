@@ -101,7 +101,7 @@ $(document).ready(function() {
    e.preventDefault();
    var token = $('.token').val();
    var reader = new FileReader();
-   // var newItem = form2object(this);
+   var new_profile = form2object(this);
 
    reader.onload = function(event){
 
@@ -165,6 +165,8 @@ $(document).ready(function() {
             // do something with the error
             return;
           } else {
+            $(e.target).parent().parent().children().children(".profName").hide();
+            //$(e.target).parent().parent().children().children(".profInput").show();
             console.log (data);
 
           }
@@ -193,10 +195,18 @@ $(document).ready(function() {
       });
        $('#myProfile').on("click", "button[data-type=commit]", function(e) {
         e.preventDefault();
-        debugger;
         var token = $('.token').val();
-        var update_profile = wrap('profile', form2object(this));
         var updateid = $(this).data("id");
+
+        var update_profile = {
+          profile : {
+           username: $('[data-field=username][data-id=' + updateid + ']').val(),
+           studio: $('[data-field=studio][data-id=' + updateid + ']').val(),
+           website: $('[data-field=website][data-id=' + updateid + ']').val(),
+
+          }
+        };
+
         swap_api.update_profile(token, updateid,
           update_profile, function(err, data) {
           if (err) {
