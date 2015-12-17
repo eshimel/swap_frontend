@@ -1,3 +1,7 @@
+.profInput {
+display: none;
+}
+
 #my-profile-template {
   font-size: 20px;
 }

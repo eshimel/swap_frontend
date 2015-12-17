@@ -34,27 +34,38 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script id="my-profile-template" type="x-handolebars-template">
+    <script id="my-profile-template" type="x-handlebars-template">
     <table>
         <thead>
             <th>avatar</th>
-            <th>username </th>
-            <th>studio </th>
-            <th>website </th>
-            <th>profileid </th>
+            <th>username</th>
+            <th>studio</th>
+            <th>website</th>
         </thead>
-           <tbody>
-         <tr>
+        <tbody>
+          <tr>
             <td><img src="https://s3.amazonaws.com/edie-009/profiles/avatars/000/000/0{{id}}/thumb/{{avatar_file_name}}"</td>
-            <td>{{username}}</td>
-            <td>{{studio}}</td>
-            <td>{{website}}</td>
-            <td><button id="edit-profile" type="button" data-id={{id}}>Edit</button></td>
-            <td><button id="delete-profile" type="button" data-id={{id}}>Delete</button></td>
-         </tr>
+            <td>
+                <span class="profName">{{username}}</span>
+                <input class="profInput" type="text" value="{{username}}" data-id="{{id}}" data-field="username" />
+            </td>
+            <td><span class="profName">{{studio}}</span>
+                <input class="profInput" type="text" value="{{studio}}" data-id="{{id}}" data-field="studio" />
+            </td>
+            <td><span class="profName">{{website}}</span>
+                <input class="profInput" type="text" value="{{website}}" data-id="{{id}}" data-field="website" />
+            </td>
+            <td><button class="profInput" type="button" data-type="commit" data-id={{id}}>Ok</button>
+            </td>
+            <td><button class="profInput" type="button" data-type="reset" data-id={{id}}>Cancel</button>
+            </td>
+            <td><button class="profName" data-type="edit" data-id={{id}}>Edit</button></td>
+            <td><button class="profName" data-type="delete" data-id={{id}}>Delete</button>
+            </td>
+          </tr>
         </tbody>
-        </table>
-        </script>
+      </table>
+      </script>
 
 </head>
 
@@ -269,37 +280,11 @@
         </div>
         </div>
     </section>
-        <section class="col-sm-6">
-        <div class="container">
-        <h3>Add Resources</h3>
-        <div>
-        <form id="resource-form">
-                <input name="category" type="text" placeholder="category">
-                <input name="description" type="text" placeholder="list resource">
-                <input name="resource" type="submit" value="add resources">
-                <input class="token" name="token" type="hidden">
-                <input class="id" name="id" type="hidden">
-        </form>
-        </div>
-            <div id="myResources" value="Resource">
-               <input name="resource" type="submit" value="List">
-                <input class="token" name="token" type="hidden">
-                <input class="id" name="id" type="hidden">
-                <ul class="myResources">My Resources</ul>
-                <li></li>
-            </div>
 
 
 
-            <div>
-                <h3>Delete Resources</h3>
-                <form id="deleteone">
-                  <input name="resourceid" type="text" placeholder="Insert ID">
-                  <input name="deleteone" type="submit" value="Delete a Resource">
-                  <input class="resourceid" name="resourceid" type="hidden">
-                </form>
 
-            </div>
+
         </div>
     </section>
     <!-- Contact Section -->

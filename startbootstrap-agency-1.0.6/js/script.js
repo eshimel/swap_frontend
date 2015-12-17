@@ -154,7 +154,7 @@ $(document).ready(function() {
     });
 
        //deleting with handlebars button
-       $(document).on("click", "#delete-profile", function(e) {
+       $('#myProfile').on("click", "button[data-type=delete]", function(e) {
         e.preventDefault();
         var token = $('.token').val();
         var profileid = $(this).data("id");
@@ -170,6 +170,52 @@ $(document).ready(function() {
           }
         });
       });
+
+       $('#myProfile').on("click", "button[data-type=edit]", function(e) {
+        var token = $('.token').val();
+        var profileid = $(this).data("id");
+        console.log(profileid);
+        $(e.target).parent().parent().children().children(".profName").hide();
+        $(e.target).parent().parent().children().children(".profInput").show();
+
+        // swap_api.update_profile(token, updateid,
+        // update_profile, function(err, data) {
+        //   if (err) {
+        //     console.error(err);
+        //     // do something with the error
+        //     return;
+        //   } else {
+
+        //     console.log (data);
+
+        //   }
+        // });
+      });
+       $('#myProfile').on("click", "button[data-type=commit]", function(e) {
+        e.preventDefault();
+        debugger;
+        var token = $('.token').val();
+        var update_profile = wrap('profile', form2object(this));
+        var updateid = $(this).data("id");
+        swap_api.update_profile(token, updateid,
+          update_profile, function(err, data) {
+          if (err) {
+            console.error(err);
+            // do something with the error
+
+          } else {
+            console.log(data);
+        }
+        });
+      });
+
+
+
+
+
+
+
+
 
       // Submitting new resource function
       $('#resource-form').on('click', function(e) {
