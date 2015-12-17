@@ -78,24 +78,61 @@ $(document).ready(function() {
     });
 
       // Submitting new entries function
-      $('#profile-form').on('submit', function(e) {
-        e.preventDefault();
-        var token = $('.token').val();
-        var new_profile = wrap('profile', form2object(this));
-        swap_api.new_profile(token, new_profile, function(err, profileData) {
-          if (err) {
-            console.error(err);
-            // do something with the error
-            return;
-          } else {
-            $('#profile-form').each(function(){
-            this.reset();
+      // $('#profile-form').on('submit', function(e) {
+      //   e.preventDefault();
+      //   var token = $('.token').val();
+      //   var new_profile = wrap('profile', form2object(this));
+      //   swap_api.new_profile(token, new_profile, function(err, profileData) {
+      //     if (err) {
+      //       console.error(err);
+      //       // do something with the error
+      //       return;
+      //     } else {
+      //       $('#profile-form').each(function(){
+      //       this.reset();
 
-          });
-            console.log(profileData);
-          }
-        });
-      });
+      //     });
+      //       console.log(profileData);
+      //     }
+      //   });
+      // });
+ //paperclip________________________________________________
+ $('#profile-form').on('submit', function(e){
+   e.preventDefault();
+   var token = $('.token').val();
+   var reader = new FileReader();
+   // var newItem = form2object(this);
+
+   reader.onload = function(event){
+
+     $.ajax({
+       url: 'http://localhost:3000/profiles',
+       method: 'POST',
+       data: { profile: {
+         username: $('#username').val(),
+         studio: $('#studio').val(),
+         website: $('#website').val(),
+         avatar: event.target.result
+
+        }
+       }, headers: {
+         Authorization: 'Token token=' + token
+       }
+
+     }).done(function(response){
+
+     }).fail(function(response){
+       console.error('Whoops!');
+     });
+   };
+
+   var $fileInput = $('#avatar');
+   reader.readAsDataURL($fileInput[0].files[0]);
+   // api.createItem(item, token, createItemCB);
+ console.log("WHHOOOOOOOOOOOO");
+ });
+
+
       //shows profile
        $("#jello").on('click', function(e) {
         e.preventDefault();
@@ -115,8 +152,27 @@ $(document).ready(function() {
         }
       });
     });
-      // Submitting new profiles function
-      $('#resource-form').on('submit', function(e) {
+
+       //deleting with handlebars button
+       $(document).on("click", "#delete-profile", function(e) {
+        e.preventDefault();
+        var token = $('.token').val();
+        var profileid = $(this).data("id");
+        console.log(profileid);
+        swap_api.destroy_profile(token, profileid, function(err, data) {
+          if (err) {
+            console.error(err);
+            // do something with the error
+            return;
+          } else {
+            console.log (data);
+
+          }
+        });
+      });
+
+      // Submitting new resource function
+      $('#resource-form').on('click', function(e) {
         e.preventDefault();
         var token = $('.token').val();
         var new_resource = wrap('resource', form2object(this));

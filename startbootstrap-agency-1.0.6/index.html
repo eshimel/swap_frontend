@@ -12,6 +12,7 @@
     <title>Art Swaps</title>
 
     <!-- Bootstrap Core CSS -->
+    <link href="css/basic.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
@@ -36,13 +37,15 @@
     <script id="my-profile-template" type="x-handolebars-template">
     <table>
         <thead>
-            <th>username</th>
-            <th>studio</th>
-            <th>website</th>
-            <th>profileid</th>
+            <th>avatar</th>
+            <th>username </th>
+            <th>studio </th>
+            <th>website </th>
+            <th>profileid </th>
         </thead>
            <tbody>
          <tr>
+            <td><img src="https://s3.amazonaws.com/edie-009/profiles/avatars/000/000/0{{id}}/thumb/{{avatar_file_name}}"</td>
             <td>{{username}}</td>
             <td>{{studio}}</td>
             <td>{{website}}</td>
@@ -212,6 +215,8 @@
         </div>
     </section>
        <!-- Profile Section -->
+
+
     <section id="profile">
         <div class="container">
             <div class="row">
@@ -229,12 +234,17 @@
         <h3>Create A Profile</h3>
             <div>
                 <form id="profile-form">
-                    <input name="username" type="text" placeholder="username">
-                    <input name="studio" type="text" placeholder="studio location">
-                    <input name="website" type="text" placeholder="website">
+                    <input id="username" type="text" placeholder="username">
+                    <input id="studio" type="text" placeholder="studio location">
+                    <input id="website" type="text" placeholder="website">
+                    <input type="file" id="avatar"/>
                     <input name="profile-submit" type="submit" value="Profile">
                     <input class="token" name="token" type="hidden">
                     <input class="id" name="id" type="hidden">
+
+
+
+
                 </form>
             </div>
                 <div><input id="jello" type="submit" value="ShowProfile"></div>
@@ -262,13 +272,15 @@
         <section class="col-sm-6">
         <div class="container">
         <h3>Add Resources</h3>
+        <div>
         <form id="resource-form">
                 <input name="category" type="text" placeholder="category">
                 <input name="description" type="text" placeholder="list resource">
+                <input name="resource" type="submit" value="add resources">
                 <input class="token" name="token" type="hidden">
                 <input class="id" name="id" type="hidden">
         </form>
-
+        </div>
             <div id="myResources" value="Resource">
                <input name="resource" type="submit" value="List">
                 <input class="token" name="token" type="hidden">
