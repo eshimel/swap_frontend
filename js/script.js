@@ -6,7 +6,7 @@ var id;
 $(document).ready(function() {
 
   var myProfileTemplate = Handlebars.compile($('#myProfile').html());
-  //var ResourceTemplate = Handlebars.compile($('#myResources').html());
+  var ResourceTemplate = Handlebars.compile($('#myResources').html());
 
 
       var form2object = function(form) {
@@ -224,7 +224,7 @@ $(document).ready(function() {
         });
       });
         //shows all resources
-       /*$("#pudding").on('click', function(e) {
+       $("#pudding").on('click', function(e) {
         e.preventDefault();
         token = $('.token').val();
         //        var profileid = $(this).data("id");
@@ -244,11 +244,11 @@ $(document).ready(function() {
             $('#myResources').html(resourcesHTML);
 
             /*$.each(data.profile, function(index, element) {
-              $('.myProfile').append("<li> Profile: " + element.username + '   ' + "Profile: " + element.studio +  '         ' + "ID: " + element.id + "</li>");
+              $('.myProfile').append("<li> Profile: " + element.username + '   ' + "Profile: " + element.studio +  '         ' + "ID: " + element.id + "</li>");*/
 
         }
       });
-    }); */
+    });
 
  // Submitting new entries function
       $('#resource-form').on('submit', function(e) {
