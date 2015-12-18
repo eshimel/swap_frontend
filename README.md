@@ -1,4 +1,4 @@
-# swap_frontend
+## swap_frontend
 
 #Art Swap App User Stories
 
@@ -21,6 +21,8 @@ As a user, I want to list artwork that I willing to trade, so that I can exchang
 
 As a user, I want to make trades with artists located near me, so that I don’t have to travel too far for trades.
 
+#Data Model Version 1
+![data model version 1](https://cloud.githubusercontent.com/assets/14185415/11896947/fde1fb44-a558-11e5-8765-22490cce2734.jpg)
 # Technologies/Libraries Used
 ##Backend
 
