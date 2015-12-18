@@ -2,7 +2,7 @@
 
 
 var swap_api = {
-  url: 'http://localhost:3000',
+  url: 'https://git.heroku.com/gentle-garden-6337',
 
 
   ajax: function (config, cb) {
