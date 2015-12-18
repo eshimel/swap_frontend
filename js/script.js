@@ -217,11 +217,13 @@ $(document).ready(function() {
             // do something with the error
 
           } else {
+             $(e.target).parent().parent().children().children(".profName").show();
+        $(e.target).parent().parent().children().children(".profInput").hide();
             console.log(data);
         }
         });
       });
-        //shows profile
+        //shows all resources
        $("#pudding").on('click', function(e) {
         e.preventDefault();
         token = $('.token').val();
@@ -231,7 +233,6 @@ $(document).ready(function() {
             console.log(err);
             return;
           } else {
-            debugger;
             var resources = data.resources;
             var resourcesHTML = '';
             resources.forEach(function(resource){
@@ -248,6 +249,27 @@ $(document).ready(function() {
         }
       });
     });
+
+ // Submitting new entries function
+      $('#resource-form').on('submit', function(e) {
+        e.preventDefault();
+        var token = $('.token').val();
+       var new_resource = wrap('resource', form2object(this));
+       swap_api.new_resource(token, new_resource, function(err, resourceData) {
+          if (err) {
+          console.error(err);
+        // do something with the error
+            return;
+          } else {
+           $('#resource-form').each(function(){
+            this.reset();
+
+          });
+            console.log(resourceData);
+          }
+        });
+       });
+
 
 
 });

@@ -149,15 +149,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Get Started</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading">Sign Up</h2>
+                    <h3 class="section-subheading text-muted">Create a profile to get started.</h3>
                 </div>
-            </div>
-        </div>
-    </section>
-  <div class="row">
-    <section class="col-lg-12">
-        <div class="container">
+
         <h3>Sign-Up/Login</h3>
       <form id="register">
         <input name="email" type="text" placeholder="email">
@@ -187,11 +182,7 @@
         <section id="profiles">
         <div class="container">
             <div class="row">
-
-
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 text-center">
+                <div class="col-sm-6text-center">
                     <h2 class="section-heading">Create a Profile</h2>
                      <div>
                         <form id="profile-form">
@@ -204,30 +195,35 @@
                             <input class="id" name="id" type="hidden">
                         </form>
                     </div>
-
-
-                    <div class="col-sm-6 text-center">
-             <div><input id="jello" type="submit" value="ShowProfile">
+                    <div><input id="jello" type="submit" value="ShowProfile">
             </div>
-
-               <div id="myProfile" value="Profile">
+                     <div id="myProfile" value="Profile">
              </div>
-             <div><h3>Look at Resources</h3><input id="pudding" type="submit" value="ShowResources">
+                    </div>
+
+
+  <div class="container">
+            <div class="row">
+                <div class="col-sm-6 text-center">
+                     <div><h3>Swapable Resources</h3><input id="pudding" type="submit" value="ShowResources">
             </div>
-             <div id="myResources" value="Resources">
-            </div>
+             <div id="myResources" value="Resources"></div>
+             <form id="resource-form">
+                            <input id="category" type="text" placeholder="category">
+                            <input id="description" type="text" placeholder="description">
+                            <input id="profile_id" type="text" placeholder="swapper_id">
 
-
-
+                            <input name="resource-submit" type="submit" value="CreateResource">
+                            <input class="token" name="token" type="hidden">
+                            <input class="id" name="id" type="hidden">
+                        </form>
                 </div>
-            </div>
-        </div>
-          </div>
-  </section>
+                </div>
+                </div>
+
+  </div>
+  </div>
    </section>
-
-        <section id ="table">
-
 
 
   </div>
@@ -245,15 +241,16 @@
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                        <i class="fa fa-camera-retro fa-stack-1x fa-inverse"></i>
                     </span>
+
                     <h4 class="swap-heading">Artwork</h4>
                     <p class="text-muted">Swapping artwork is great way to build your collection.</p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+                        <i class="fa fa-spinner fa-pulse fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="swap-heading">Materials</h4>
                     <p class="text-muted">Share Materials that you no longer want with other artists.</p>
@@ -261,7 +258,7 @@
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+                        <i class="fa fa-paint-brush fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="swap-heading">Skills</h4>
                     <p class="text-muted">Need some help...want to help?  Trade skills.</p>
