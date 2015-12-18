@@ -106,7 +106,7 @@ $(document).ready(function() {
    reader.onload = function(event){
 
      $.ajax({
-       url: 'http://localhost:3000/profiles',
+       url: 'https://protected-lowlands-8693.herokuapp.com',
        method: 'POST',
        data: { profile: {
          username: $('#username').val(),
