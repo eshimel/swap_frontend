@@ -23,6 +23,9 @@ As a user, I want to make trades with artists located near me, so that I don’t
 
 #Data Model Version 1
 ![data model version 1](https://cloud.githubusercontent.com/assets/14185415/11896947/fde1fb44-a558-11e5-8765-22490cce2734.jpg)
+#Basic WireFrame
+![swap](https://cloud.githubusercontent.com/assets/14185415/11906125/6aa2544c-a598-11e5-856a-8fb37ea9cf76.jpg)
+
 # Technologies/Libraries Used
 ##Backend
 
