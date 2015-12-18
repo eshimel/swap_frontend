@@ -2,7 +2,7 @@
 
 
 var swap_api = {
-  url: 'http://localhost:3000',
+  url: 'https://protected-lowlands-8693.herokuapp.com',
 
 
   ajax: function (config, cb) {
